@@ -10,10 +10,11 @@ import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { RouterModule } from '@angular/router';
+import { ProductDetailGuard } from './guards/product-detail.guard';
 
 const routes = [
   { path: 'products', component: ProductsListComponent },
-  { path: 'products/:id', component: ProductDetailsComponent },
+  { path: 'products/:id', canActivate: [ProductDetailGuard], component: ProductDetailsComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: '/**', redirectTo: 'home', patMatch: 'full' }
@@ -34,7 +35,6 @@ const routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
