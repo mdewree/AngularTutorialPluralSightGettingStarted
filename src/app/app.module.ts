@@ -6,15 +6,12 @@ import { ProductsListComponent } from './products/products-list/products-list.co
 import { FormsModule } from '@angular/forms';
 import { ConvertToSpacesPipe } from './pipes/convert-to-spaces.pipe';
 import { StarRatingComponent } from './star-rating/star-rating.component';
-import { ProductService } from './products/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { RouterModule } from '@angular/router';
-import { ProductDetailGuard } from './products/product-details/product-detail.guard';
+import { ProductModule } from './products/product.module';
 
 const routes = [
-  { path: 'products', component: ProductsListComponent },
-  { path: 'products/:id', canActivate: [ProductDetailGuard], component: ProductDetailsComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: '/**', redirectTo: 'home', patMatch: 'full' }
@@ -23,17 +20,14 @@ const routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ProductsListComponent,
-    ConvertToSpacesPipe,
-    StarRatingComponent,
-    ProductDetailsComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ProductModule
   ],
   bootstrap: [AppComponent]
 })
