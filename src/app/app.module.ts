@@ -6,11 +6,11 @@ import { ProductsListComponent } from './products/products-list/products-list.co
 import { FormsModule } from '@angular/forms';
 import { ConvertToSpacesPipe } from './pipes/convert-to-spaces.pipe';
 import { StarRatingComponent } from './star-rating/star-rating.component';
-import { ProductService } from './services/product.service';
+import { ProductService } from './products/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { RouterModule } from '@angular/router';
-import { ProductDetailGuard } from './guards/product-detail.guard';
+import { ProductDetailGuard } from './products/product-details/product-detail.guard';
 
 const routes = [
   { path: 'products', component: ProductsListComponent },
